@@ -153,6 +153,15 @@ Exam_questions.q4.perfect_squares = function (a, b) {
  *   // {"numbers": [1, 3, 5, 6], "powers": [1, 9, 25, 36]}
  */
 Exam_questions.q5.power_object = function (numbers, exponent) {
+    let numbers_list = [];
+    let powers_list = [];
+    numbers.forEach(function(num){
+        numbers_list.push(num);
+        let power_num = num ** exponent
+        powers_list.push(power_num)
+    });
+    let answer = {numbers: numbers_list, powers: powers_list}
+    return answer
 };
 
 /**
