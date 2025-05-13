@@ -55,11 +55,10 @@ Exam_questions.q2.sum_of_numbers = function (array_of_any_type) {
     let sum = 0;
     array_of_any_type.forEach(function(type) {
         if (type.isInteger(type)){
-            sum += type
+            sum += type;
         }
     });
     return sum
-
 };
 
 /**
