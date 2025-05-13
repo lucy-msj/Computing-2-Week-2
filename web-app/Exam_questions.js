@@ -1,5 +1,7 @@
 // import R from "./ramda.js";
 
+import { endsWith } from "ramda";
+
 /**
  * This file is an adaption of the Computing 1 exam into Javascript.
  * @namespace Exam_questions
@@ -114,6 +116,27 @@ Exam_questions.q3.longest_palindrome = function (string_array) {
  * @example perfect_squares(2, 16) // [4, 9, 16]
  */
 Exam_questions.q4.perfect_squares = function (a, b) {
+    let square_array = [];
+    //make a list of numbers a to b
+    let current = a;
+    let number_list = [];
+    //Keep going as long as current is less than or equal to b
+    while (current <= b) {
+        //Keep going as long as current is less than or equal to b
+        number_list.push(current);
+        //Add 1 to current
+        current++;
+      }
+      //go through each number and make sure it's a perfect square
+      number_list.forEach(function(num) {
+        //gets the square root of the number.
+        let root = Math.sqrt(num);
+        //If the square root is a whole number , then num is a perfect square so we save it.
+        if (Number.isInteger(root)) {
+            square_array.push(num);
+            }
+        });
+    return square_array
 };
 
 /**
