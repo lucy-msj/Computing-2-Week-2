@@ -30,12 +30,12 @@ Exam_questions.q1.shortest_word = function (word_array) {
     // Start with the first word as the shortest
     let shortest = word_array[0];
      //for each goes through each value in the list
-    word_array.forEach(function(word)){
+    word_array.forEach(function(word) {
         //replaces shortest if shorter word found
-        if (word.length<shortest.length){
-            shortest = word
+        if (word.length < shortest.length) {
+            shortest = word;
         }
-    }
+    });
     return shortest;
 };
 
@@ -50,6 +50,14 @@ Exam_questions.q1.shortest_word = function (word_array) {
  * @example sum_of_numbers(["hello", "cat", 2, true, 17, undefined]) // 19;
  */
 Exam_questions.q2.sum_of_numbers = function (array_of_any_type) {
+    let sum = 0
+    array_of_any_type.forEach(function(type) {
+        if (type.isInteger(type)){
+            sum += type
+        }
+    });
+    return sum
+
 };
 
 /**
