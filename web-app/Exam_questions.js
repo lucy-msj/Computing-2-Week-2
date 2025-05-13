@@ -27,6 +27,16 @@ const Exam_questions = {
  * @example shortest_word(["hello", "cat", "ok", "12345"]) // "ok";
  */
 Exam_questions.q1.shortest_word = function (word_array) {
+    // Start with the first word as the shortest
+    let shortest = word_array[0];
+     //for each goes through each value in the list
+    word_array.forEach(function(word)){
+        //replaces shortest if shorter word found
+        if (word.length<shortest.length){
+            shortest = word
+        }
+    }
+    return shortest;
 };
 
 /**
