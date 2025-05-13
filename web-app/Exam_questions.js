@@ -50,7 +50,7 @@ Exam_questions.q1.shortest_word = function (word_array) {
  * @example sum_of_numbers(["hello", "cat", 2, true, 17, undefined]) // 19;
  */
 Exam_questions.q2.sum_of_numbers = function (array_of_any_type) {
-    let sum = 0
+    let sum = 0;
     array_of_any_type.forEach(function(type) {
         if (type.isInteger(type)){
             sum += type
@@ -82,6 +82,24 @@ Exam_questions.q2.sum_of_numbers = function (array_of_any_type) {
  *   // "never odd or even"
  */
 Exam_questions.q3.longest_palindrome = function (string_array) {
+    // This will store the longest palindrome found (starts as undefined)
+    let longest;
+    string_array.forEach(function(sentence) {
+        // Remove all spaces from the sentence
+        let new_sentence = sentence.replaceAll(" ", "");
+        // Reverse the new sentence (can only be done as an array thats why split and join)
+        let reversed = new_sentence.split("").reverse().join("")
+        // Check if it's a palindrome (same forwards and backwards)
+        if (new_sentence === reversed) {
+             // If we don't have a longest value yet, or this one is longer (ignoring spaces)
+            if (!longest || new_sentence.length > longest.replaceAll(" ", "").length) {
+                // Update the longest palindrome found
+              longest = sentence;
+            }
+        }
+    });
+    // Return the longest palindrome found, or undefined if none
+    return longest
 };
 
 /**
