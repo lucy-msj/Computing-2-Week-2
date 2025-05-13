@@ -180,6 +180,27 @@ Exam_questions.q5.power_object = function (numbers, exponent) {
  * @example missing_character("hello", "hellonn") // undefined
  */
 Exam_questions.q6.missing_character = function (short_string, long_string) {
+    let short_array = short_string.split("").sort()
+    let long_array = long_string.split("").sort()
+
+    let extra;
+
+    short_array.forEach(function(char, i){
+        // Compare each character in the sorted arrays
+        if (char !== long_array[i]){
+            // Found the extra character
+            extra = long_array[i]
+        }
+    });
+     // If we didn’t find a mismatch during the loop, it’s at the end
+    if (short_array.length + 1 === long_array.length && extra === undefined){
+        extra = long_array[long_array.length - 1]
+    }
+    // If the lengths are invalid or something went wrong, return undefined
+    if (short_array.length + 1 !== long_array.length) {
+        return undefined;
+    }
+    return extra
 };
 
 /**
@@ -194,6 +215,34 @@ Exam_questions.q6.missing_character = function (short_string, long_string) {
  * @example even_digits(2, 27) // [2, 4, 6, 8, 20, 22, 24, 26]
  */
 Exam_questions.q7.even_digits = function (a, b) {
+    let even_array = [];
+    //make a list of numbers a to b
+    let current = a;
+    let number_list = [];
+    //Keep going as long as current is less than or equal to b
+    while (current <= b) {
+        //Keep going as long as current is less than or equal to b
+        number_list.push(current);
+        //Add 1 to current
+        current++;
+      }
+      //go through each number and make sure it's a perfect even
+      number_list.forEach(function(num) {
+        let all_even = true;
+        // Convert number to string, then split into digits
+        let digits = num.toString().split("");
+      // Check each digit
+        digits.forEach(function(d) {
+          if (Number(d) % 2 !== 0) {
+            all_even = false;
+          }
+        });
+      
+        if (all_even) {
+          even_array.push(num);
+        }
+      });
+    return even_array
 };
 
 /**
